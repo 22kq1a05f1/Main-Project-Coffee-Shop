@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+:root{
+    --main-color:#070404;
+    --black:#13131a;
+    --bg: #010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+body{
+    background: url("now.jpg");
+    background-size: cover;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+}
+
+body{
+    background: var(--bg);
+}
+
+section{
+    padding:2rem 7%;
+}
+.heading{
+    text-align: center;
+    color:#fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+.heading span{
+    color:var(--main-color);
+    text-transform: uppercase;
+}
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: .2rem;
+}
+
+.about .row{
+    display: flex;
+    align-items: center;
+    background:var(--black);
+    flex-wrap: wrap;
+}
+
+.about .row .image{
+    flex:1 1 45rem;
+}
+
+.about .row .image img{
+    width: 100%;
+}
+.about .row .content{
+    flex:1 1 45rem;
+    padding:2rem;
+}
+
+.about .row .content h3{
+    font-size: 3rem;
+    color:#fff;
+}
+
+.about .row .content p{
+    font-size: 1.6rem;
+    color:#ccc;
+    padding:1rem 0;
+    line-height: 1.8;
+}
+
+.box video{
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+<!-- about section starts  -->
+<div class="box">
+    <video src="C:\Users\saive\OneDrive\Desktop\coffee shop\css\myonly--video.mp4" autoplay muted loop>
+    </video>
+</div>
+<section class="about" id="about">
+   <br><br><br><br>
+
+
+    <h1 class="heading"> <span>about</span> us </h1>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+    <div class="row">
+
+        <div class="image">
+            <img src="../images/5-coffee.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>what makes our coffee special?</h3>
+            <p>perfect cup of coffee. Passionate baristas, latte art, manual coffee brewing, and tiny espresso drinks make up just a portion of the specialty coffee movement; the foundations run much deeper.</p>
+            <p>The Specialty Coffee Association (SCA) defines specialty coffee as coffee that has been graded above 80. This means that the quality of the coffee is beyond the final product served on your cup. Specialty coffee is a novel approach to coffee that is driven by morally conscious ethics, an appreciation for quality and variety, and a thriving community.....</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="../images/4-coffee.jpg" alt="">
+        </div>
+        <div class="content">
+            <h3>Why Specialty Coffee is Special?</h3>
+            <p>The first thing that comes to mind when thinking about specialty coffee is its advanced quality. The flavors hidden in a cup of coffee are rich and crisp, and this comes not just from the quality </p>
+            <p>Countries like Ethiopia, Kenya and Colombia are known for producing some of the best specialty coffees in the world. Specialty coffee can only be grown in ideal conditions; if the seed is planted in the wrong spot, in the wrong soil, or even at the wrong altitude, then the coffee will lose its special certification.........</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+<br><br><br><br><br><br><br><br><br>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="../images/1-coffee.jpg" alt="">
+        </div>
+
+        <div class="content">
+            <h3>Does coffee dehydrate you?</h3>
+            <p>While caffeinated beverages, including coffee, may have mild diuretic effects - causing the need to urinate - they don’t appear to cause dehydration. That is they don’t cause fluid loss in excess of the volumed </p>
+            <p>In addition filter coffee for example can often be as little as 1-2% dissolved coffee in 98-995 of water and drinking coffee (or tea) does count towards your daily fluid intake. </p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- about section ends -->
+</body>
+</html>

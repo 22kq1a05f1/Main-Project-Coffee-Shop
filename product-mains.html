@@ -1,0 +1,657 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+:root{
+    --main-color: #B22222;
+    --black:#13131a;
+    --bg:#010103;
+    --border:.1rem solid rgba(255,255,255,.3);
+}
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+}
+
+body{
+    background: var(--bg);
+}
+
+section{
+    padding:2rem 7%;
+}
+.heading{
+    text-align: center;
+    color:#fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+.heading span{
+    color:var(--main-color);
+    text-transform: uppercase;
+}
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding:.9rem 3rem;
+    font-size: 1.7rem;
+    color:#fff;
+    background: var(--main-color);
+    cursor: pointer;
+}
+
+.btn:hover{
+    letter-spacing: .2rem;
+}
+
+.header{
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:1.5rem 7%;
+    border-bottom: var(--border);
+    position: fixed;
+    top:0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+.header .logo img{
+    height: 6rem;
+}
+
+.header .navbar a{
+    margin:0 1rem;
+    font-size: 1.6rem;
+    color:#fff;
+}
+
+.header .navbar a:hover{
+    color:var(--main-color);
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.header .icons div{
+    color:#fff;
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.header .icons div:hover{
+    color:var(--main-color);
+}
+
+#menu-btn{
+    display: none;
+}
+
+.header .search-form{
+    position: absolute;
+    top:115%; right: 7%;
+    background: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    transform: scaleY(0);
+    transform-origin: top;
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form input{
+    height: 100%;
+    width: 100%;
+    font-size: 1.6rem;
+    color:var(--black);
+    padding:1rem;
+    text-transform: none;
+}
+
+.header .search-form label{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color:var(--black);
+}
+
+.header .search-form label:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top:100%; right: -100%;
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #fff;
+    padding:0 1.5rem;
+}
+
+.header .cart-items-container.active{
+    right: 0;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    margin:2rem 0;
+    display: flex;
+    align-items: center;
+    gap:1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-times{
+    position: absolute;
+    top:1rem; right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-times:hover{
+    color:var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color:var(--black);
+    padding-bottom: .5rem;
+}
+
+.header .cart-items-container .cart-item .content .price{
+    font-size: 1.5rem;
+    color:var(--main-color);
+}
+
+.header .cart-items-container .btn{
+    width: 100%;
+    text-align: center;
+}
+.blogs .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.blogs .box-container .box{
+    border:var(--border);    
+}
+
+.blogs .box-container .box .image{
+    height: 25rem;
+    overflow:hidden;
+    width: 100%;
+}
+
+.blogs .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blogs .box-container .box:hover .image img{
+    transform: scale(1.2);
+}
+
+.blogs .box-container .box .content{
+    padding:2rem;
+}
+
+.blogs .box-container .box .content .title{
+    font-size: 2.5rem;
+    line-height: 1.5;
+    color:#fff;
+}
+
+.blogs .box-container .box .content .title:hover{
+    color:var(--main-color);
+}
+
+.blogs .box-container .box .content span{
+    color:var(--main-color);
+    display: block;
+    padding-top: 1rem;
+    font-size: 2rem;
+}
+
+.blogs .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color:#ccc;
+    padding:1rem 0;
+}
+span{
+    color: crimson;
+
+}.box video{
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+/* media queries  */
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .header{
+        padding:1.5rem 2rem;
+    }
+
+    section{
+        padding:2rem;
+    }
+
+}
+
+@media (max-width:768px){
+
+    #menu-btn{
+        display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top:100%; right: -100%;
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar.active{
+        right:0;
+    }
+
+    .header .navbar a{
+        color:var(--black);
+        display: block;
+        margin:1.5rem;
+        padding:.5rem;
+        font-size: 2rem;
+    }
+
+    .header .search-form{
+        width: 90%;
+        right: 2rem;
+    }
+
+    .home{
+        background-position: left;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .home .content h3{
+        font-size: 4.5rem;
+    }
+
+    .home .content p{
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    html{
+        font-size: 50%;
+    }
+
+}
+</style>
+</head>
+   <body>
+
+    <div class="box">
+        <video src="C:\Users\saive\OneDrive\Desktop\coffee shop\css\video.mp4"autoplay muted loop>
+        </video>
+    </div>
+<!-- blogs section starts  -->
+
+<section class="blogs" id="blogs">
+     
+    <br>
+    <br>
+        <h2 class="heading">Cof<span>fee</span> | Shop </h2>
+<h1 class="heading">Our Menu </h1>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div class="box-container">
+
+    <div class="box">
+        <div class="image">
+            <img src="22.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span> Espresso-Coffee </span>
+            <p>Espresso as a standalone coffee is served everywhere. 
+                It contains literally the basic essence. </p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+            <img src="blog-2.jpeg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span> Cappuccino-Coffee</span>
+            <p>Everyone’s favourite and the most well-known and standard coffee drink, 
+               cappuccino contains more milk-to-coffee ratio</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+            <img src="18.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Long Black-Coffee</span>
+            <p>essence, Long Black and Café Americano are the same thing, 
+                but it makes a world of difference to coffee connoisseurs</p>
+            <a href=".#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="mocha-coffee.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Macchiato-Coffee</span>
+            <p>Macchiato in Italian means ‘stained.’ This is because a serving of Macchiato 
+               is a normal Espresso shot with a little-foamed milk on top.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="image">
+            <img src="espresso-coffee.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Americano-Coffee</span>
+            <p>Everyone’s favourite and the most well-known and standard coffee drink, 
+               cappuccino contains more milk-to-coffee ratio</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="image">
+            <img src="16.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Frappé</span>
+            <p> One of the fanciest coffee drinks out there, and the one that 
+                contains the least amount of coffee in comparison to other items. </p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+            <img src="mixed-coffee.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span> Borgia-Coffee</span>
+            <p>There’s really not much difference in between Mocha and Borgia. What does set 
+               them apart, is what goes in the whipped cream on the top</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="Cortado Coffee.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Mazagran</span>
+            <p>Fancy a zingy touch to your everyday coffee? Add lemon. WHAT!? 
+               Meant to enjoy in the , lemon juice.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="CAPPUCCINO-COFFEE.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span></span>
+            <span>Café del Tiempo</span>
+            <p> Café de Tiempo literally means ‘weather coffee.’ Meant to enjoy in the hot summers, 
+                this is espresso served with an offering.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="image">
+            <img src="16.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Piccolo latte</span>
+            <p> Before we get to this coffee variant (no manga or musical references), 
+                let me tell you about Ristretto. Ristretto, broadly defined, is Espresso.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="2.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Café con Hielo</span>
+            <p>This exciting Spanish offering literally means ‘coffee with ice.’ 
+                Meant to enjoy in the hot summwe Also known.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="3.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Affogato</span>
+            <p>Coffee and ice cream is better. Is it? You decide!Ideal serving: 1 scoop 
+               vanilla ice cream + 30ml Espresso poured on the top in a 150 ml.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="image">
+            <img src="blog-3.jpeg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Irish</span>
+            <p>The Irish sure know to stir things up and making literally any dish 
+               or drink interesting. Ever heard whiskey in coffee</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="5.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Turkish</span>
+            <p>The Turkish like their coffee light and sweet. Hence, a majority of this coffee 
+               is sugar water.Ideal serving: 10g (or 2 tsp.) ground </p>
+            <a href="#" class="btn">Read Now</a>
+        </div>
+    </div>
+
+
+    <div class="box">
+        <div class="image">
+            <img src="6.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Flat White</span>
+            <p>A slight variation of the more generalised Cappucino, a Flat White is a 
+               no-nonsense Cappuccino with double the amount</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+
+
+    <div class="box">
+        <div class="image">
+            <img src="7.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Black</span>
+            <p>Black coffee is as simple as it gets with ground coffee beans steeped in hot water, 
+                served warm. And if you want to sound fancy, you can cal</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="image">
+            <img src="16.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Doppio</span>
+            <p>Doppio in Italian literally means ‘double.’ It is a double shot of Espresso 
+                coffee.
+                Ideal serving: 60ml Espresso in a 90ml cup.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="image">
+            <img src="9.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>ristretto</span>
+            <p>Arabica is the most popular type of coffee, hands down. Depending on 
+                who you ask, many coffee enthusiasts prefer using Arabica</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="image">
+            <img src="10.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Galão</span>
+            <p> Originating in Portugal, this hot coffee drink is closely related to the latte and 
+                cappuccino. Only difference is it contains about twice as much</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="image">
+            <img src="11.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span> Latte-Coffee</span>
+            <p>As the most popular coffee drink out there, the latte is comprised of
+                 a shot of espresso and steamed milk with just a touch of foam.</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="box">
+        <div class="image">
+            <img src="13.jpg" alt="">
+        </div>
+        <div class="content">
+            <a href="#" class="title">tasty and refreshing coffee</a>
+            <span>Mocha-Coffee</span>
+            <p>simply known as Vienna Coffee, this coffee is a fun-loving twist to your 
+                regular Espresso shot. What’s the twist, you ask? WHIPPED CREAM!</p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+    </div>
+</div>
+
+</section>
+
+<!-- blogs section ends -->
+</body>
+</html>
